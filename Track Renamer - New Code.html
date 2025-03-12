@@ -1,215 +1,199 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delivery Titles Generator</title>
+  <style>
+    body {
+      font-family: "Century Gothic", sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input[type="text"], select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    .track-key-group {
+      display: flex;
+      gap: 5px;
+    }
+    .track-key-group select {
+      flex: 1;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 15px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .output {
+      margin-top: 20px;
+    }
+    .title-item {
+      display: flex;
+      align-items: center;
+      background: #e9ecef;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 3px;
+    }
+    .title-text {
+      flex-grow: 1;
+    }
+    .copy-btn {
+      margin-left: 10px;
+      padding: 5px 10px;
+    }
+    h2 {
+      margin-top: 25px;
+      font-size: 18px;
+      color: #333;
+    }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Delivery Titles Generator&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: "Century Gothic", sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #f5f5f5;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 600px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: auto;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 2px 5px rgba(0,0,0,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>label {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>input[type="text"], select {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-sizing: border-box;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.track-key-group {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.track-key-group select {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex: 1;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>button {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px 15px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 14px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.output {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.title-item {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #e9ecef;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 3px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.title-text {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex-grow: 1;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.copy-btn {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-left: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 5px 10px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>h2 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 25px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #333;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Delivery Titles Generator&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;form id="titleForm"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;label for="songTitle"&gt;Song Title:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;input type="text" id="songTitle" required&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;label for="composerName"&gt;Composer Name:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;input type="text" id="composerName" required&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;label for="projectCode"&gt;Project Code:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;input type="text" id="projectCode" required&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;label for="trackBPM"&gt;Track BPM:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;input type="text" id="trackBPM" required oninput="validateBPM()"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;label&gt;Track Key:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="track-key-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;select id="keyInput"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="C"&gt;C&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="D"&gt;D&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="E"&gt;E&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="F"&gt;F&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="G"&gt;G&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="A"&gt;A&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="B"&gt;B&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;select id="alterInput"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value=""&gt;(none)&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="#"&gt;#&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="b"&gt;b&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;select id="modeInput"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="Major"&gt;Major&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="Minor"&gt;Minor&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;option value="Modal"&gt;Modal&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;label for="trackType"&gt;Track Type:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;select id="trackType"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Vocal Track"&gt;Vocal Track&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="Instrumental"&gt;Instrumental&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/select&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="button" onclick="generateTitles()"&gt;Generate Delivery Titles&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="reset" onclick="resetOutput()"&gt;Reset&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/form&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="output" class="output"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>function generateTitles() {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const songTitle = document.getElementById("songTitle").value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const composerName = document.getElementById("composerName").value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const projectCode = document.getElementById("projectCode").value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const trackBPM = document.getElementById("trackBPM").value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const keyInput = document.getElementById("keyInput").value;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const alterInput = document.getElementById("alterInput").value;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const modeInput = document.getElementById("modeInput").value;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const trackType = document.getElementById("trackType").value;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>if (!/^\d*$/.test(trackBPM)) {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>alert("Track BPM can only contain numbers.");</p>
-<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>const trackKey = keyInput + alterInput + " " + modeInput;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>if (!songTitle || !composerName || !projectCode || !trackBPM) {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>alert("Please fill in all fields.");</p>
-<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>const words = composerName.split(" ");</p>
-<p class="p1"><span class="Apple-converted-space">      </span>let initials = words.map(word =&gt; word[0].toUpperCase()).join("");</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>let baseVersions = trackType === "Instrumental" ?<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>[{ prefix: "A_", name: "Main" }, { prefix: "B_", name: "NoLeads" }, { prefix: "C_", name: "US" }] :</p>
-<p class="p1"><span class="Apple-converted-space">        </span>[{ prefix: "A_", name: "Main" }, { prefix: "B_", name: "NoLeadVox" }, { prefix: "C_", name: "NoLeads" }, { prefix: "D_", name: "US" }];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>const additionalSuffixes = ["", "60", "30", "15", "Sting"];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>let outputHTML = `&lt;h2&gt;Your deliverables and titles should be the following:&lt;/h2&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>baseVersions.forEach(base =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>additionalSuffixes.forEach(suffix =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">          </span>const versionLabel = base.name + suffix;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>const fileName = `${projectCode}_${songTitle}_${initials}_${base.prefix}${versionLabel}`;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>outputHTML += `</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="title-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="title-text"&gt;${fileName}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="copy-btn" onclick="copyText('${fileName}')"&gt;Copy&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;`;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p1"><span class="Apple-converted-space">      </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>const stemsFolderName = `${projectCode}_${songTitle}_${initials}_${trackBPM}_${trackKey}_Stems`;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>outputHTML += `&lt;h2&gt;Your stems folder name should be:&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="title-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="title-text"&gt;${stemsFolderName}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="copy-btn" onclick="copyText('${stemsFolderName}')"&gt;Copy&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;`;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>const stemsNaming = `${projectCode}_${songTitle}_${initials}_Client Stem`;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>outputHTML += `&lt;h2&gt;Use the following to name your stems: (Replace "Client" with the instrument name)&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="title-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="title-text"&gt;${stemsNaming}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="copy-btn" onclick="copyText('${stemsNaming}')"&gt;Copy&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;`;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("output").innerHTML = outputHTML;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function copyText(text) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>navigator.clipboard.writeText(text).then(() =&gt; alert("Copied to clipboard!"));</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function validateBPM() {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("trackBPM").value = document.getElementById("trackBPM").value.replace(/\D/g, "");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function resetOutput() {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("output").innerHTML = "";</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+  <div class="container">
+    <h1>Delivery Titles Generator</h1>
+    <form id="titleForm">
+      <label for="songTitle">Song Title:</label>
+      <input type="text" id="songTitle" required>
+
+      <label for="composerName">Composer Name:</label>
+      <input type="text" id="composerName" required>
+
+      <label for="projectCode">Project Code:</label>
+      <input type="text" id="projectCode" required>
+
+      <label for="trackBPM">Track BPM:</label>
+      <input type="text" id="trackBPM" required oninput="validateBPM()">
+
+      <label>Track Key:</label>
+      <div class="track-key-group">
+        <select id="keyInput">
+          <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="E">E</option>
+          <option value="F">F</option>
+          <option value="G">G</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+        </select>
+        <select id="alterInput">
+          <option value="">(none)</option>
+          <option value="#">#</option>
+          <option value="b">b</option>
+        </select>
+        <select id="modeInput">
+          <option value="Major">Major</option>
+          <option value="Minor">Minor</option>
+          <option value="Modal">Modal</option>
+        </select>
+      </div>
+
+      <label for="trackType">Track Type:</label>
+      <select id="trackType">
+        <option value="Vocal Track">Vocal Track</option>
+        <option value="Instrumental">Instrumental</option>
+      </select>
+
+      <div>
+        <button type="button" onclick="generateTitles()">Generate Delivery Titles</button>
+        <button type="reset" onclick="resetOutput()">Reset</button>
+      </div>
+    </form>
+    
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    function generateTitles() {
+      const songTitle = document.getElementById("songTitle").value.trim();
+      const composerName = document.getElementById("composerName").value.trim();
+      const projectCode = document.getElementById("projectCode").value.trim();
+      const trackBPM = document.getElementById("trackBPM").value.trim();
+      const keyInput = document.getElementById("keyInput").value;
+      const alterInput = document.getElementById("alterInput").value;
+      const modeInput = document.getElementById("modeInput").value;
+      const trackType = document.getElementById("trackType").value;
+
+      if (!/^\d*$/.test(trackBPM)) {
+        alert("Track BPM can only contain numbers.");
+        return;
+      }
+
+      const trackKey = keyInput + alterInput + " " + modeInput;
+
+      if (!songTitle || !composerName || !projectCode || !trackBPM) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const words = composerName.split(" ");
+      let initials = words.map(word => word[0].toUpperCase()).join("");
+
+      let baseVersions = trackType === "Instrumental" ? 
+        [{ prefix: "A_", name: "Main" }, { prefix: "B_", name: "NoLeads" }, { prefix: "C_", name: "US" }] :
+        [{ prefix: "A_", name: "Main" }, { prefix: "B_", name: "NoLeadVox" }, { prefix: "C_", name: "NoLeads" }, { prefix: "D_", name: "US" }];
+
+      const additionalSuffixes = ["", "60", "30", "15", "Sting"];
+
+      let outputHTML = `<h2>Your deliverables and titles should be the following:</h2>`;
+      baseVersions.forEach(base => {
+        additionalSuffixes.forEach(suffix => {
+          const versionLabel = base.name + suffix;
+          const fileName = `${projectCode}_${songTitle}_${initials}_${base.prefix}${versionLabel}`;
+          outputHTML += `
+          <div class="title-item">
+            <span class="title-text">${fileName}</span>
+            <button class="copy-btn" onclick="copyText('${fileName}')">Copy</button>
+          </div>`;
+        });
+      });
+
+      const stemsFolderName = `${projectCode}_${songTitle}_${initials}_${trackBPM}_${trackKey}_Stems`;
+      outputHTML += `<h2>Your stems folder name should be:</h2>
+      <div class="title-item">
+        <span class="title-text">${stemsFolderName}</span>
+        <button class="copy-btn" onclick="copyText('${stemsFolderName}')">Copy</button>
+      </div>`;
+
+      const stemsNaming = `${projectCode}_${songTitle}_${initials}_Client Stem`;
+      outputHTML += `<h2>Use the following to name your stems: (Replace "Client" with the instrument name)</h2>
+      <div class="title-item">
+        <span class="title-text">${stemsNaming}</span>
+        <button class="copy-btn" onclick="copyText('${stemsNaming}')">Copy</button>
+      </div>`;
+
+      document.getElementById("output").innerHTML = outputHTML;
+    }
+
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => alert("Copied to clipboard!"));
+    }
+
+    function validateBPM() {
+      document.getElementById("trackBPM").value = document.getElementById("trackBPM").value.replace(/\D/g, "");
+    }
+
+    function resetOutput() {
+      document.getElementById("output").innerHTML = "";
+    }
+  </script>
 </body>
 </html>
